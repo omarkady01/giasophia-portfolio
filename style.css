@@ -2429,6 +2429,18 @@ section {
     }
 }
 
+.link-arrow {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 6px;
+    vertical-align: middle;
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+}
 
+a:hover .link-arrow {
+    transform: translate(3px, -3px);
+}
 
 

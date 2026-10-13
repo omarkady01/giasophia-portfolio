@@ -1,0 +1,2434 @@
+
+/* =========================================
+   01. FONTS & GLOBAL RESET
+========================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Nothing+You+Could+Do&display=swap");
+
+:root {
+    font-family: "Inter", Arial, sans-serif;
+    color: #ffffff;
+    background: #090909;
+
+    --background: #090909;
+    --surface: #111111;
+    --gold: #d2ad55;
+    --muted: #888888;
+    --border: rgba(255, 255, 255, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+
+    font-family: "Inter", Arial, sans-serif;
+    background: var(--background);
+    color: #ffffff;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+a {
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+}
+
+section {
+    scroll-margin-top: 76px;
+}
+
+
+/* =========================================
+   02. MAIN APP
+========================================= */
+
+.app {
+    min-height: 100vh;
+
+    background:
+            radial-gradient(
+                    circle at 85% 20%,
+                    rgba(210, 173, 85, 0.12),
+                    transparent 28%
+            ),
+            #090909;
+
+    color: #ffffff;
+}
+
+
+/* =========================================
+   03. NAVIGATION
+========================================= */
+
+.navbar {
+    height: 76px;
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    background: rgba(9, 9, 9, 0.92);
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.brand {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(210, 173, 85, 0.65);
+
+    color: var(--gold);
+    font-size: 0.9rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.navbar a {
+    color: #a9a9a9;
+    text-decoration: none;
+
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+
+    transition: color 0.2s ease;
+}
+
+.navbar a:hover {
+    color: #ffffff;
+}
+
+
+/* =========================================
+   04. HERO SECTION
+========================================= */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+
+    min-height: calc(100vh - 76px);
+    padding: 5rem 7%;
+
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+
+/* LEFT BACKGROUND WATERMARK */
+
+.hero-watermark {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 58%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center top;
+
+    opacity: 0.12;
+
+    filter:
+            grayscale(1)
+            brightness(0.45);
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+/* HERO TEXT CONTENT */
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+
+    max-width: 760px;
+}
+
+.eyebrow {
+    margin: 0 0 1rem;
+
+    color: var(--gold);
+
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+}
+
+.name-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.3rem;
+}
+
+.hero h1 {
+    margin: 0;
+    max-width: 850px;
+
+    color: #ffffff;
+
+    font-family: "Inter", Arial, sans-serif;
+    font-size: clamp(4rem, 8vw, 7.5rem);
+    font-weight: 900;
+    line-height: 0.82;
+    letter-spacing: -0.06em;
+    text-transform: uppercase;
+
+    text-shadow: 0 6px 30px rgba(0, 0, 0, 0.45);
+}
+
+.jersey-number {
+    margin-top: 0.7rem;
+
+    color: var(--gold);
+
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+.tagline {
+    margin: 1.8rem 0 0;
+
+    color: var(--gold);
+
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.hero-description {
+    max-width: 640px;
+    margin-top: 1.5rem;
+
+    color: #969696;
+    font-size: 0.98rem;
+    line-height: 1.8;
+}
+
+.hero-quote {
+    max-width: 520px;
+    margin-top: 1.4rem;
+    padding-left: 1.1rem;
+
+    color: #c4c4c4;
+
+    font-family: "Nothing You Could Do", cursive;
+    font-size: 1.35rem;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.6;
+    letter-spacing: 0;
+
+    border-left: 2px solid var(--gold);
+}
+
+
+/* HERO INFORMATION CARDS */
+
+.player-details {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+
+    margin-top: 3rem;
+}
+
+.player-details div {
+    padding: 1rem 1.1rem;
+
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.player-details span {
+    display: block;
+    margin-bottom: 0.5rem;
+
+    color: #777777;
+
+    font-size: 0.67rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.player-details strong {
+    color: #ffffff;
+
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+
+/* HERO BUTTONS */
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+
+    margin-top: 3rem;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1rem 1.6rem;
+
+    text-decoration: none;
+    text-transform: uppercase;
+
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+
+    border-radius: 2px;
+
+    transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease,
+            border-color 0.2s ease;
+}
+
+.button.primary,
+.primary {
+    background: var(--gold);
+    color: #0b0b0b;
+}
+
+.button.primary:hover,
+.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(210, 173, 85, 0.18);
+}
+
+.button.secondary,
+.secondary {
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.button.secondary:hover,
+.secondary:hover {
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+
+/* =========================================
+   05. HERO PHOTO & GRADIENT
+========================================= */
+
+/*
+  IMAGE ADJUSTMENT GUIDE
+
+  .hero-image height:
+    Changes the height of the image area.
+
+  .hero-photo width:
+    Controls how far the photo extends left.
+
+  object-fit: contain:
+    Shows the complete image without cropping.
+
+  object-fit: cover:
+    Fills the entire image box but crops edges.
+
+  object-position:
+    Controls which part of the image is visible.
+*/
+
+.hero-image {
+    position: relative;
+    z-index: 0;
+
+    height: 800px;
+    min-height: 800px;
+
+    overflow: visible;
+    border: none;
+    background: transparent;
+}
+
+
+.hero-image {
+    position: relative;
+    z-index: 0;
+
+    height: 800px;
+    min-height: 800px;
+
+    overflow: visible;
+    border: none;
+    background: transparent;
+}
+
+
+
+.hero-photo {
+    position: absolute;
+
+    top: 50%;
+    right: -130px;
+
+    width: auto;
+    height: 120%;
+    max-width: none;
+
+    object-fit: contain;
+    object-position: center;
+
+    display: block;
+
+    transform: translateY(-50%);
+
+    filter:
+            brightness(1.08)
+            contrast(1.08)
+            saturate(0.95);
+
+    z-index: 0;
+
+    animation: heroImageEntrance 1.5s
+    cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+
+
+
+/* DARK GRADIENT OVER HERO IMAGE */
+
+
+
+.hero-image::after {
+    display: none;
+    /*content: "";*/
+    /*position: absolute;*/
+
+    /*top: 0;*/
+    /*right: -80px;*/
+    /*bottom: 0;*/
+
+    /*width: calc(100% + 350px);*/
+
+    /*background:*/
+    /*        linear-gradient(*/
+    /*                to right,*/
+    /*                rgba(9, 9, 9, 0.85) 0%,*/
+    /*                rgba(9, 9, 9, 0.55) 15%,*/
+    /*                rgba(9, 9, 9, 0.2) 30%,*/
+    /*                transparent 45%*/
+    /*        ),*/
+    /*        linear-gradient(*/
+    /*                to top,*/
+    /*                rgba(9, 9, 9, 0.25),*/
+    /*                transparent 30%*/
+    /*        );*/
+
+    /*pointer-events: none;*/
+    /*z-index: 1;*/
+}
+
+
+
+
+/* SUBTLE NUMBER OVER PHOTO */
+
+.photo-number {
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0.5rem;
+
+    color: rgba(210, 173, 85, 0.12);
+
+    font-size: clamp(5rem, 12vw, 12rem);
+    font-weight: 900;
+    line-height: 1;
+
+    pointer-events: none;
+    z-index: 2;
+}
+
+
+/* =========================================
+   06. FILM SECTION
+========================================= */
+
+.film-section {
+    padding: 7rem 7%;
+
+    background:
+            radial-gradient(
+                    circle at 75% 15%,
+                    rgba(210, 173, 85, 0.07),
+                    transparent 28%
+            ),
+            #0a0a0a;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.film-heading {
+    max-width: 700px;
+}
+
+.film-heading h2 {
+    margin: 0;
+
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+}
+
+.film-intro {
+    max-width: 580px;
+    margin-top: 1.5rem;
+
+    color: #888888;
+    line-height: 1.8;
+}
+
+
+/* FEATURED FILM LAYOUT */
+
+.featured-film {
+    display: grid;
+    grid-template-columns: 1.6fr 0.7fr;
+    gap: 1rem;
+
+    margin-top: 3.5rem;
+}
+
+.film-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 2rem;
+
+    background: #101010;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.film-label {
+    margin: 0 0 0.9rem;
+
+    color: var(--gold);
+
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.film-details h3 {
+    margin: 0;
+
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1.05;
+    text-transform: uppercase;
+}
+
+.film-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.3rem;
+
+    margin-top: 2rem;
+}
+
+.film-meta span {
+    display: block;
+    margin-bottom: 0.4rem;
+
+    color: #777777;
+
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+}
+
+.film-meta strong {
+    color: #ffffff;
+    font-size: 0.95rem;
+}
+
+.film-description {
+    margin-top: 2rem;
+
+    color: #888888;
+    font-size: 0.85rem;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   07. FILM CARDS
+========================================= */
+
+.film-card {
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 260px;
+
+    background:
+            radial-gradient(
+                    circle at center,
+                    rgba(210, 173, 85, 0.08),
+                    transparent 35%
+            ),
+            linear-gradient(135deg, #141414, #090909);
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    transition:
+            transform 0.25s ease,
+            border-color 0.25s ease;
+}
+
+.film-card-featured {
+    min-height: 600px;
+}
+
+
+
+.film-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+            linear-gradient(
+                    to top,
+                    rgba(0, 0, 0, 0.9),
+                    transparent 55%
+            );
+
+    pointer-events: none;
+    z-index: 1;
+}
+
+.film-card:hover {
+    border-color: rgba(210, 173, 85, 0.35);
+    transform: translateY(-2px);
+}
+
+.film-card-link {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* FILM THUMBNAILS */
+
+.film-thumbnail {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    z-index: 0;
+
+    filter:
+            brightness(0.68)
+            contrast(1.08)
+            saturate(0.9);
+
+    transition:
+            transform 0.5s ease,
+            filter 0.5s ease;
+}
+
+
+/* FEATURED FILM - CUSTOM PHOTO FRAMING */
+
+.film-card-featured .film-thumbnail {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: auto;
+    bottom: auto;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center 20%;
+
+    transform: none;
+}
+
+/* Prevent hover zoom on featured image */
+
+.film-card-featured:hover .film-thumbnail {
+    transform: none;
+}
+
+
+.film-card-link:hover .film-thumbnail {
+    transform: scale(1.025);
+
+    filter:
+            brightness(0.78)
+            contrast(1.08)
+            saturate(1);
+}
+
+
+/* FILM CARD NUMBER */
+
+.film-card-number {
+    position: absolute;
+    right: -0.03em;
+    bottom: -0.22em;
+
+    color: rgba(255, 255, 255, 0.025);
+
+    font-size: 12rem;
+    font-weight: 900;
+    line-height: 1;
+
+    pointer-events: none;
+    z-index: 2;
+}
+
+
+/* PLAY BUTTON */
+
+.play-button {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 76px;
+    height: 76px;
+
+    border-radius: 50%;
+    border: 1px solid rgba(210, 173, 85, 0.65);
+
+    color: var(--gold);
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+
+    transition:
+            transform 0.25s ease,
+            background 0.25s ease,
+            color 0.25s ease;
+}
+
+.play-button span {
+    margin-left: 4px;
+    font-size: 1.2rem;
+}
+
+.film-card:hover .play-button {
+    transform: scale(1.08);
+    background: var(--gold);
+    color: #080808;
+}
+
+
+/* FILM CARD TEXT */
+
+.film-card-content {
+    position: absolute;
+    left: 1.5rem;
+    bottom: 1.5rem;
+
+    z-index: 2;
+}
+
+.film-status {
+    color: var(--gold);
+
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.film-card-content h4 {
+    margin: 0.45rem 0 0;
+
+    color: #ffffff;
+
+    font-size: 1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+
+/* MORE FILM */
+
+.more-film {
+    margin-top: 5rem;
+}
+
+.more-film-heading h3 {
+    margin: 0;
+
+    font-size: 2.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.film-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+
+    margin-top: 2rem;
+}
+
+
+/* =========================================
+   08. STATS SECTION
+========================================= */
+
+.stats-section {
+    padding: 7rem 7%;
+
+    background: #090909;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.stats-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.stats-header h2 {
+    margin: 0;
+
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+}
+
+.stats-intro {
+    max-width: 320px;
+    margin: 0;
+
+    color: #888888;
+    line-height: 1.8;
+}
+
+
+/* THREE SEASON CARDS */
+
+.season-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+
+    margin-top: 4rem;
+}
+
+.season-stat-card {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 560px;
+    padding: 2rem;
+
+    background:
+            linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.025),
+                    transparent 45%
+            ),
+            #111111;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.season-stat-card.featured-season {
+    border-color: rgba(210, 173, 85, 0.42);
+
+    background:
+            radial-gradient(
+                    circle at 70% 15%,
+                    rgba(210, 173, 85, 0.09),
+                    transparent 35%
+            ),
+            #12110e;
+}
+
+
+/* SEASON CARD HEADER */
+
+.season-card-top {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    padding-bottom: 1.8rem;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.season-index {
+    color: var(--gold);
+
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+}
+
+.season-card-top h3 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+}
+
+
+/* STAT VALUES */
+
+.season-stat-list {
+    position: relative;
+    z-index: 2;
+
+    margin-top: 1rem;
+}
+
+.season-stat {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 105px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.season-stat:last-child {
+    border-bottom: none;
+}
+
+.season-stat span {
+    color: #888888;
+
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+}
+
+.season-stat strong {
+    color: #ffffff;
+
+    font-size: clamp(2.2rem, 3vw, 3.4rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.05em;
+}
+
+.featured-season .season-stat strong {
+    color: var(--gold);
+}
+
+
+/* LARGE FADED SEASON NUMBERS */
+
+.season-ghost {
+    position: absolute;
+
+    left: 50%;
+    bottom: 0.16em;
+
+    width: calc(100% - 2rem);
+
+    transform:
+            translateX(-50%)
+            scaleX(0.85);
+
+    transform-origin: center bottom;
+
+    color: rgba(255, 255, 255, 0.025);
+
+    font-size: clamp(5.4rem, 6.7vw, 8.2rem);
+    font-weight: 900;
+    line-height: 0.8;
+    letter-spacing: -0.08em;
+
+    text-align: center;
+    white-space: nowrap;
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+/* OPTIONAL STATS FOOTER */
+
+.stats-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1rem;
+
+    margin-top: 2rem;
+    padding: 1.5rem;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.015);
+}
+
+.stats-footer span {
+    color: #999999;
+
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+
+/* =========================================
+   09. CAREER, ABOUT & CONTACT
+========================================= */
+
+/*
+  These sections were not fully built
+  in the original recovered project.
+
+  This styling supports simple placeholders
+  until we design the final sections.
+*/
+
+.career-section,
+.about-section,
+.contact-section,
+.placeholder-section {
+    padding: 7rem 7%;
+
+    background: #0a0a0a;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.career-section h2,
+.about-section h2,
+.contact-section h2,
+.placeholder-section h2 {
+    margin: 0;
+
+    font-size: clamp(2.8rem, 5vw, 5rem);
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.career-section p,
+.about-section p,
+.contact-section p,
+.placeholder-section p {
+    max-width: 650px;
+
+    color: #999999;
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   10. TABLET RESPONSIVE
+========================================= */
+
+
+@media (max-width: 1050px) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 4rem 6%;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: 600px;
+        min-height: 600px;
+        overflow: hidden;
+    }
+
+    .hero-photo {
+        top: 0;
+        right: 0;
+
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: center 30%;
+    }
+
+    .hero-image::after {
+        width: 100%;
+        height: 100%;
+    }
+
+    .hero-watermark {
+        width: 100%;
+        opacity: 0.08;
+    }
+}
+
+
+
+/* =========================================
+   11. MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .hero-image {
+        width: 100%;
+        height: 460px;
+        min-height: 460px;
+    }
+
+    .hero-photo {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: center 25%;
+    }
+
+    .hero-image::after {
+        width: 100%;
+        height: 100%;
+    }
+
+    .navbar {
+        padding: 0 6%;
+    }
+
+    .navbar nav {
+        display: none;
+    }
+
+    .hero {
+        padding: 4rem 6% 2rem;
+        gap: 1rem;
+    }
+
+    .hero h1 {
+        font-size: clamp(3.2rem, 16vw, 5rem);
+    }
+
+    .name-row {
+        gap: 0.7rem;
+    }
+
+    .jersey-number {
+        font-size: 0.8rem;
+    }
+
+    .tagline {
+        font-size: 0.8rem;
+        line-height: 1.7;
+    }
+
+    .hero-quote {
+        font-size: 1.1rem;
+    }
+
+    .player-details {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.65rem;
+    }
+
+    .player-details div {
+        padding: 0.9rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-image {
+        height: 460px;
+        min-height: 460px;
+    }
+
+    .hero-photo {
+        width: 100%;
+        object-fit: contain;
+        object-position: center bottom;
+    }
+
+    .photo-number {
+        font-size: 6rem;
+    }
+
+    .film-section,
+    .stats-section,
+    .career-section,
+    .about-section,
+    .contact-section,
+    .placeholder-section {
+        padding: 5rem 6%;
+    }
+
+    .film-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .film-card {
+        min-height: 240px;
+    }
+
+    .film-card-featured {
+        min-height: 330px;
+    }
+
+    .film-meta {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .film-details {
+        padding: 1.5rem;
+    }
+
+    .film-details h3 {
+        font-size: 1.6rem;
+    }
+
+    .season-stat-card {
+        min-height: 520px;
+        padding: 1.5rem;
+    }
+
+    .season-stat {
+        min-height: 90px;
+    }
+
+    .season-ghost {
+        font-size: clamp(4rem, 16vw, 7rem);
+    }
+
+    .stats-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.5rem;
+    }
+
+    .stats-footer span {
+        padding: 0;
+        border-right: none;
+    }
+}
+
+
+/* =========================================
+   12. HERO ENTRANCE ANIMATION
+========================================= */
+
+
+@keyframes heroImageEntrance {
+    0% {
+        transform: translate(160px, -50%);
+        opacity: 0;
+    }
+
+    65% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(0, -50%);
+        opacity: 1;
+    }
+}
+
+
+.hero-photo {
+    animation: heroImageEntrance 1.5s
+    cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+
+@keyframes heroTextEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content {
+    animation: heroTextEntrance 0.9s ease-out 0.35s both;
+}
+
+
+/* Accessibility: disable motion when requested */
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-photo {
+        animation: none;
+    }
+}
+
+.navbar nav a[aria-current="location"] {
+    color: #d2ad55;
+}
+
+
+/* MORE FILM THUMBNAILS */
+
+.film-grid .film-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+}
+
+/* Keep smaller film cards consistent */
+
+.film-grid .film-card {
+    min-height: 280px;
+}
+
+
+/* =========================================
+   CAREER SECTION
+========================================= */
+
+.career-section {
+    padding: 7rem 7%;
+    background: #090909;
+}
+
+.career-header {
+    max-width: 750px;
+    margin-bottom: 5rem;
+}
+
+.career-header h2 {
+    margin: 0;
+    font-size: clamp(3rem, 6vw, 6rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+}
+
+.gold-dot {
+    color: #d2ad55;
+}
+
+.career-intro {
+    max-width: 570px;
+    margin-top: 1.5rem;
+    color: #999;
+    line-height: 1.8;
+}
+
+/* TIMELINE */
+
+.career-timeline {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.career-timeline::before {
+    content: "";
+    position: absolute;
+    left: 145px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(
+            to bottom,
+            #d2ad55,
+            rgba(210, 173, 85, 0.08)
+    );
+}
+
+.career-item {
+    display: grid;
+    grid-template-columns: 145px 1fr;
+    gap: 3rem;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.career-year {
+    position: relative;
+    padding-top: 2rem;
+    color: #d2ad55;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+}
+
+.career-year::after {
+    content: "";
+    position: absolute;
+    right: -3.35rem;
+    top: 2.15rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #d2ad55;
+    box-shadow: 0 0 18px rgba(210, 173, 85, 0.4);
+    z-index: 2;
+}
+
+/* CAREER CARDS */
+
+.career-card {
+    padding: 3rem;
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.career-card:hover {
+    border-color: rgba(210, 173, 85, 0.45);
+    transform: translateY(-4px);
+}
+
+.career-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.career-category {
+    color: #d2ad55;
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+}
+
+.career-card-number {
+    color: rgba(255, 255, 255, 0.1);
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.career-card h3 {
+    margin: 0;
+    font-size: clamp(2.8rem, 5vw, 5rem);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.06em;
+}
+
+.career-role {
+    margin-top: 1.5rem;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.career-role span {
+    color: #d2ad55;
+    margin: 0 0.5rem;
+}
+
+.career-description {
+    max-width: 650px;
+    margin-top: 1.5rem;
+    color: #999;
+    font-size: 0.95rem;
+    line-height: 1.9;
+}
+
+.career-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 2rem;
+}
+
+.career-tags span {
+    padding: 0.65rem 0.9rem;
+    border: 1px solid rgba(210, 173, 85, 0.2);
+    color: #d2ad55;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.career-card-featured {
+    background: linear-gradient(
+            135deg,
+            #18150e,
+            #111
+    );
+    border-color: rgba(210, 173, 85, 0.4);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 700px) {
+    .career-timeline::before {
+        left: 0;
+    }
+
+    .career-item {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding-left: 1.5rem;
+    }
+
+    .career-year {
+        padding-top: 0;
+    }
+
+    .career-year::after {
+        left: -1.8rem;
+        right: auto;
+        top: 0.2rem;
+    }
+
+    .career-card {
+        padding: 2rem 1.5rem;
+    }
+}
+
+
+/* =========================================
+   ABOUT SECTION
+========================================= */
+
+.about-section {
+    padding: 7rem 7%;
+    background: #0b0b0b;
+    overflow: hidden;
+}
+
+.about-heading {
+    margin-bottom: 4rem;
+}
+
+.about-heading h2 {
+    margin: 0;
+    font-size: clamp(3.5rem, 6vw, 6rem);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.06em;
+}
+
+.about-dot {
+    color: #d2ad55;
+}
+
+/* SPLIT LAYOUT */
+
+.about-layout {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+/* LEFT IMAGE */
+
+.about-visual {
+    position: relative;
+    min-height: 700px;
+    overflow: hidden;
+    background: #151515;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.about-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    filter: grayscale(0.3) brightness(0.75);
+    transition: transform 0.6s ease;
+}
+
+.about-visual:hover .about-photo {
+    transform: scale(1.04);
+}
+
+.about-photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+            to top,
+            rgba(0,0,0,0.85),
+            transparent 60%
+    );
+    pointer-events: none;
+}
+
+.about-photo-label {
+    position: absolute;
+    left: 2rem;
+    bottom: 2rem;
+    z-index: 2;
+}
+
+.about-photo-label span {
+    display: block;
+    color: #d2ad55;
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.7rem;
+}
+
+.about-photo-label strong {
+    display: block;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 900;
+}
+
+.about-background-number {
+    position: absolute;
+    right: -0.05em;
+    bottom: -0.2em;
+    font-size: 14rem;
+    font-weight: 900;
+    color: rgba(255,255,255,0.04);
+    pointer-events: none;
+}
+
+/* RIGHT CONTENT */
+
+.about-kicker {
+    color: #d2ad55;
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    margin-bottom: 1.5rem;
+}
+
+.about-content h3 {
+    margin: 0 0 2rem;
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 900;
+    line-height: 0.92;
+    letter-spacing: -0.06em;
+}
+
+.about-content h3 span {
+    color: #d2ad55;
+}
+
+.about-lead {
+    color: #e1e1e1 !important;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.about-paragraph {
+    color: #999;
+    font-size: 0.95rem;
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+}
+
+/* VALUES */
+
+.about-values {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.about-value span {
+    display: block;
+    color: #d2ad55;
+    font-size: 0.7rem;
+    font-weight: 900;
+    margin-bottom: 0.8rem;
+}
+
+.about-value strong {
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+/* BOTTOM STATEMENT */
+
+.about-statement {
+    max-width: 950px;
+    margin: 8rem auto 0;
+    text-align: center;
+}
+
+.about-statement-line {
+    display: block;
+    width: 50px;
+    height: 2px;
+    background: #d2ad55;
+    margin: 0 auto 2rem;
+}
+
+.about-statement p {
+    color: #fff;
+    font-family: "Nothing You Could Do", cursive;
+    font-size: clamp(1.5rem, 3vw, 2.6rem);
+    line-height: 1.6;
+}
+
+.about-statement-name {
+    display: block;
+    color: #d2ad55;
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    margin-top: 1.5rem;
+}
+
+/* TABLET */
+
+@media (max-width: 1050px) {
+    .about-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .about-visual {
+        min-height: 600px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+    .about-visual {
+        min-height: 450px;
+    }
+
+    .about-values {
+        gap: 0.5rem;
+    }
+
+    .about-value strong {
+        font-size: 0.6rem;
+    }
+
+    .about-statement {
+        margin-top: 5rem;
+    }
+}
+
+
+/* =========================================
+   CONTACT SECTION
+========================================= */
+
+.contact-section {
+    padding: 7rem 7% 0;
+    background: #090909;
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.contact-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* HEADER */
+
+.contact-header {
+    max-width: 900px;
+    margin-bottom: 5rem;
+}
+
+.contact-header h2 {
+    margin: 0;
+    font-size: clamp(4rem, 9vw, 9rem);
+    font-weight: 900;
+    line-height: 0.85;
+    letter-spacing: -0.075em;
+}
+
+.contact-header h2 span {
+    color: #d2ad55;
+}
+
+.contact-intro {
+    max-width: 580px;
+    margin-top: 2rem;
+    color: #999;
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+/* MAIN CONTACT CARD */
+
+.contact-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+
+    padding: 4rem;
+    background: linear-gradient(
+            135deg,
+            #19160e,
+            #101010 65%
+    );
+
+    border: 1px solid rgba(210,173,85,0.35);
+}
+
+.contact-small-label {
+    color: #d2ad55;
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+}
+
+.contact-main h3 {
+    margin: 1.5rem 0;
+    font-size: clamp(2.5rem, 4vw, 4.5rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+}
+
+.contact-main p {
+    max-width: 440px;
+    color: #999;
+    line-height: 1.8;
+}
+
+.contact-email-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+
+    padding: 1.4rem 2rem;
+
+    background: #d2ad55;
+    color: #090909;
+
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+
+    white-space: nowrap;
+
+    transition: transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.contact-email-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(210,173,85,0.25);
+}
+
+.contact-email-button span {
+    font-size: 1.3rem;
+}
+
+/* CONTACT INFO */
+
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.contact-info-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 180px;
+    padding: 2rem;
+
+    background: #111;
+    border: 1px solid rgba(255,255,255,0.07);
+
+    transition: border-color 0.25s ease;
+}
+
+.contact-info-card:hover {
+    border-color: rgba(210,173,85,0.4);
+}
+
+.contact-info-number {
+    color: #d2ad55;
+    font-size: 0.65rem;
+    font-weight: 900;
+}
+
+.contact-info-label {
+    margin-top: 1.5rem;
+    color: #777;
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+}
+
+.contact-info-card a {
+    margin-top: 0.7rem;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.contact-info-card a:hover {
+    color: #d2ad55;
+}
+
+/* FOOTER */
+
+.portfolio-footer {
+    max-width: 1400px;
+    margin: 7rem auto 0;
+    padding: 3rem 0 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 55px;
+    height: 55px;
+
+    border: 1px solid #d2ad55;
+    color: #d2ad55;
+
+    font-size: 1.1rem;
+    font-weight: 900;
+}
+
+.footer-brand strong {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+}
+
+.footer-brand p {
+    margin: 0.4rem 0 0;
+    color: #777;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+}
+
+.back-to-top {
+    color: #d2ad55;
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+}
+
+.back-to-top:hover {
+    color: #fff;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+    margin-top: 3rem;
+    padding-top: 2rem;
+
+    border-top: 1px solid rgba(255,255,255,0.06);
+
+    color: #666;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+}
+
+/* TABLET */
+
+@media (max-width: 1050px) {
+    .contact-main {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+    .contact-section {
+        padding: 5rem 6% 0;
+    }
+
+    .contact-header h2 {
+        font-size: clamp(3.2rem, 13vw, 5rem);
+    }
+
+    .contact-main {
+        padding: 2rem;
+    }
+
+    .contact-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-email-button {
+        width: 100%;
+    }
+
+    .footer-top,
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .portfolio-footer {
+        margin-top: 5rem;
+    }
+}
+
+
+/* =========================================
+   MOBILE FOUNDATION FIX
+========================================= */
+
+@media (max-width: 700px) {
+
+    html,
+    body {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        overflow-x: clip;
+    }
+
+    .app {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    section {
+        max-width: 100%;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE HERO FIX
+========================================= */
+
+@media (max-width: 700px) {
+
+    html,
+    body,
+    .app {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: clip;
+    }
+
+    /* NAVIGATION */
+
+    .navbar {
+        height: 64px;
+        padding: 0 5%;
+    }
+
+    .navbar nav {
+        gap: 0.8rem;
+    }
+
+    .navbar nav a {
+        font-size: 0.6rem;
+        letter-spacing: 0.02em;
+    }
+
+    .brand {
+        width: 36px;
+        height: 36px;
+        flex-shrink: 0;
+    }
+
+    /* HERO LAYOUT */
+
+    .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2rem;
+
+        min-height: auto;
+        padding: 3.5rem 6% 4rem;
+
+        align-items: start;
+    }
+
+    .hero-content {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    /* HEADING */
+
+    .name-row {
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.5rem, 10vw, 4.2rem);
+        line-height: 0.95;
+        letter-spacing: -0.06em;
+        overflow-wrap: anywhere;
+    }
+
+    .jersey-number {
+        margin-top: 0.3rem;
+        font-size: 0.8rem;
+        flex-shrink: 0;
+    }
+
+    /* TEXT */
+
+    .eyebrow {
+        font-size: 0.65rem;
+        letter-spacing: 0.12em;
+    }
+
+    .tagline {
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+        line-height: 1.6;
+    }
+
+    .hero-description {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+
+    .hero-quote {
+        font-size: 1.05rem;
+    }
+
+    /* BACKGROUND IMAGE */
+
+    .hero-watermark {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        opacity: 0.08;
+    }
+
+    /* BUTTONS */
+
+    .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .hero-actions a {
+        max-width: 100%;
+    }
+
+}
+
+
+/* =========================================
+   CLEAN RESPONSIVE LAYOUT
+========================================= */
+
+@media (max-width: 1050px) {
+
+    .featured-film {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .stats-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .about-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .hero-photo {
+        animation: none;
+        transform: none;
+        top: 0;
+        right: 0;
+    }
+}
+
+@media (max-width: 700px) {
+
+    html, body, .app {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .navbar {
+        height: 64px;
+        padding: 0 6%;
+    }
+
+    .navbar nav {
+        display: none;
+    }
+
+    /* HERO */
+
+    .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2rem;
+        min-height: auto;
+        padding: 3rem 6% 4rem;
+    }
+
+    .hero-content {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .name-row {
+        display: block;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.3rem, 10vw, 3.4rem);
+        line-height: 1;
+        overflow-wrap: anywhere;
+    }
+
+    .jersey-number {
+        display: inline-block;
+        margin-top: 0.75rem;
+    }
+
+    .player-details {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.65rem;
+    }
+
+    .player-details div {
+        min-width: 0;
+        padding: 0.85rem;
+    }
+
+    .player-details strong {
+        font-size: 0.8rem;
+        overflow-wrap: anywhere;
+    }
+
+    .hero-buttons {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .hero-image {
+        position: relative;
+        width: 100%;
+        height: 420px;
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    .hero-photo {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        object-fit: cover;
+        object-position: center 30%;
+        transform: none;
+        animation: none;
+    }
+
+    .hero-watermark {
+        width: 100%;
+        opacity: 0.06;
+    }
+
+    /* FILM */
+
+    .featured-film,
+    .film-grid,
+    .season-stats-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .film-card-featured {
+        min-height: 330px;
+    }
+
+    .film-details {
+        min-width: 0;
+    }
+
+    /* STATS */
+
+    .season-stat-card {
+        min-height: 0;
+    }
+
+    /* HEADINGS */
+
+    .film-heading h2,
+    .stats-header h2,
+    .career-header h2,
+    .about-heading h2 {
+        font-size: clamp(2.2rem, 9vw, 3.5rem);
+        overflow-wrap: anywhere;
+    }
+
+    .contact-header h2 {
+        font-size: clamp(2.8rem, 12vw, 4rem);
+    }
+
+    /* ABOUT */
+
+    .about-content h3 {
+        font-size: clamp(2.4rem, 10vw, 4rem);
+    }
+
+    /* CONTACT */
+
+    .contact-main {
+        padding: 2rem 1.5rem;
+    }
+
+    .contact-main h3 {
+        font-size: clamp(2rem, 9vw, 3rem);
+    }
+}
+
+
+
+

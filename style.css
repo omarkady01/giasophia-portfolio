@@ -2443,4 +2443,47 @@ a:hover .link-arrow {
     transform: translate(3px, -3px);
 }
 
+/* League Performance Section */
+.stats-group-divider {
+    grid-column: 1 / -1;
+    margin: 60px 0 25px;
+    padding-top: 45px;
+    border-top: 1px solid rgba(201, 164, 76, 0.35);
+}
+
+/* Match College Performance header */
+.stats-group-divider .stats-header {
+    width: 100%;
+}
+
+/* Space between league cards on desktop and mobile */
+.stats-group-divider ~ .season-stat-card + .season-stat-card {
+    margin-top: 20px;
+}
+
+/* Consistent spacing for stacked cards on mobile */
+@media (max-width: 768px) {
+    .season-stats-grid {
+        row-gap: 20px;
+    }
+}
+
+
+/* Gallery Coming Soon — match contact card links */
+.contact-info-card .contact-coming-soon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    color: inherit;
+    font: inherit;
+    text-transform: uppercase;
+}
+
+.contact-info-card .contact-coming-soon .link-arrow {
+    opacity: 0.45;
+}
+
+
+
 
